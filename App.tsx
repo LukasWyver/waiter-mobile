@@ -3,6 +3,9 @@ import { StatusBar } from 'expo-status-bar';
 import { ActivityIndicator, View } from 'react-native';
 import { Main } from './src/Main';
 
+import 'intl';
+import 'intl/locale-data/jsonp/pt-BR';
+
 export default function App() {
   const [isFontsLoaded] = useFonts({
     'GeneralSans-400': require('./src/assets/fonts/GeneralSans-Regular.otf'),
@@ -12,15 +15,20 @@ export default function App() {
 
   if (!isFontsLoaded) {
     return (
-      <View style={{ flex: 1, backgroundColor: '#D73035' }}>
-        <ActivityIndicator color="#fff" size={32} />
-      </View>
+      <View style={{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#D73035'
+      }}>
+        <ActivityIndicator color="#fff" size='large' />
+      </View >
     );
   }
 
   return (
     <>
-      <StatusBar style='dark' />
+      <StatusBar style='dark' backgroundColor='#fff' />
       <Main />
     </>
   );

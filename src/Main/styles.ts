@@ -20,7 +20,8 @@ export const MenuContainer = styled.View`
 `;
 
 export const Footer = styled.View`
-  min-height: 110px;
+  min-height: ${isAndroid ? '0' : '110px'};
+  padding: 16px 24px;
   background: #fff;
 `;
 
