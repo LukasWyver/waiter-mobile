@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
-import {Platform, StatusBar } from 'react-native';
+import { StatusBar } from 'react-native';
+import {isAndroid} from '../utils/isAndroid';
 
-const isAndroid = Platform.OS === 'android';
 const Height = StatusBar.currentHeight;
 
 export const Container = styled.SafeAreaView`
