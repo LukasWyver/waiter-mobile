@@ -1,5 +1,9 @@
 import styled from 'styled-components/native';
 
+export const OverlayWithoutFeedback = styled.TouchableWithoutFeedback`
+  flex: 1;
+`;
+
 export const Overlay = styled.KeyboardAvoidingView`
   background: rgba(0,0,0,0.6);
   justify-content: center;

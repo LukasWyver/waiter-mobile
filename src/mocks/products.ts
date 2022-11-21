@@ -25,12 +25,12 @@ export const products = [
         name: 'Brie',
         icon: '🧀',
         _id: '6372e040f52e37ef85fe2c62'
-      }
+      },
     ],
   },
   {
     _id: '6372e276a381106c0f854cb3',
-    name: 'Coca Cola',
+    name: 'Coca Cola 2lt',
     description: 'Coca cola lata geladinha topzera',
     imagePath: '1668558998408-chicken.png',
     price: 7,
