@@ -5,6 +5,7 @@ import { isAndroid } from '../../utils/isAndroid';
 import { Button } from '../Button';
 import { Close } from '../Icons/Close';
 import { Text } from '../Text';
+import { StatusBar } from 'expo-status-bar';
 
 interface TableModalProps {
   visible: boolean;
@@ -27,6 +28,7 @@ export function TableModal({ visible, onClose, onSave }: TableModalProps) {
       transparent
       visible={visible}
       animationType="fade">
+      <StatusBar style='light' backgroundColor='rgba(0,0,0,0.6)' />
       <OverlayWithoutFeedback onPress={onClose}>
         <Overlay behavior={isAndroid ? 'height' : 'padding'}>
           <ModalBody>
@@ -44,6 +46,7 @@ export function TableModal({ visible, onClose, onSave }: TableModalProps) {
                 placeholderTextColor="#666"
                 keyboardType='number-pad'
                 onChangeText={setTable}
+                autoFocus={true}
               />
 
               <Button onPress={handleSave} disabled={table.length === 0}>
