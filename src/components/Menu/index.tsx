@@ -10,9 +10,10 @@ import { Product } from '../../types/Product';
 
 interface MenuProps {
   selectedTable: string;
+  onAddToCart: (product: Product) => void;
 }
 
-export function Menu({ selectedTable }: MenuProps) {
+export function Menu({ selectedTable, onAddToCart }: MenuProps) {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<null | Product>(null);
@@ -28,6 +29,7 @@ export function Menu({ selectedTable }: MenuProps) {
         visible={isModalVisible}
         onClose={() => setIsModalVisible(false)}
         product={selectedProduct}
+        onAddToCart={onAddToCart}
       />
       <FlatList
         data={products}
@@ -48,7 +50,7 @@ export function Menu({ selectedTable }: MenuProps) {
             </ProductDetails>
 
             {selectedTable && (
-              <AddToCartButton>
+              <AddToCartButton onPress={() => onAddToCart(product)}>
                 <PlusCircle />
               </AddToCartButton>
             )}

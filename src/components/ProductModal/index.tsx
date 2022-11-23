@@ -10,12 +10,18 @@ import { CloseButton, ModalBody, Header, Image, IngredientsContainer, Ingredient
 interface ProductModalProps {
   visible: boolean;
   onClose: () => void;
+  onAddToCart: (product: Product) => void;
   product: null | Product;
 }
 
-export function ProductModal({ visible, onClose, product }: ProductModalProps) {
+export function ProductModal({ visible, onClose, product, onAddToCart }: ProductModalProps) {
   if (!product) {
     return null;
+  }
+
+  function handleAddToCart() {
+    onAddToCart(product!);
+    onClose();
   }
 
   return (
@@ -27,6 +33,7 @@ export function ProductModal({ visible, onClose, product }: ProductModalProps) {
     >
       <Image
         source={{
+          // uri: ``http://192.168.0.252:3001/uploads/${product.imagePath}`
           uri: `https://source.unsplash.com/random/393x200/?${product?.name}`
         }}
       >
@@ -71,10 +78,9 @@ export function ProductModal({ visible, onClose, product }: ProductModalProps) {
           <PriceContainer>
             <Text color='#666'>Preço</Text>
             <Text size={20} weight='600'>{formatCurrency(product.price)}</Text>
-
           </PriceContainer>
 
-          <Button onPress={() => alert('teste')}>
+          <Button onPress={handleAddToCart}>
             Adicionar ao pedido
           </Button>
         </FooterContainer>
